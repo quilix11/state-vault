@@ -1,5 +1,9 @@
 import fastapi
 from pydantic import BaseModel
+from database.core import engine, Base
+from database.models import ConfigBackup
+
+Base.metadata.create_all(bind=engine)
 
 app = fastapi.FastAPI()
 
