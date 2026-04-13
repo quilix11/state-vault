@@ -1,0 +1,17 @@
+from pathlib import Path
+
+CONFIG_REGISTRY = {
+    'zshrc': Path.home() / '.zshrc',
+}
+
+def find_config(config):
+    if config in CONFIG_REGISTRY:
+        config_obj = CONFIG_REGISTRY[config]
+        if config_obj.exists():
+            print(f"Config '{config}' found at {config_obj}")
+            return config_obj
+        else:
+            raise FileNotFoundError(f"Config file '{config}' not found at {config_obj}")
+    else:
+        print(f"Config '{config}' not found in registry.")
+    
