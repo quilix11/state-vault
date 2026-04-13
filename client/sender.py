@@ -1,5 +1,6 @@
 import httpx
 import asyncio
+from scanner import find_config, read_config
 
 
 async def send_config(app_name: str, config: str):
@@ -18,4 +19,9 @@ async def send_config(app_name: str, config: str):
     
 
 if __name__ == "__main__":
-    asyncio.run(send_config("test_zshrc", "це тестовий текст конфігу з клієнта!"))
+    path = find_config('zshrc')
+    if path:
+        content = read_config(path)
+        asyncio.run(send_config("zshrc", content))
+
+
