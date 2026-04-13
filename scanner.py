@@ -15,3 +15,13 @@ def find_config(config):
     else:
         print(f"Config '{config}' not found in registry.")
     
+config_obj = find_config('zshrc')
+
+def read_config(config_obj):
+    content = config_obj.read_text()
+    print(f"Content of '{config_obj}':\n{content}")
+    return content
+
+if config_obj:
+    text = read_config(config_obj)
+    print(f"Read content from '{config_obj}':\n{text}")
