@@ -1,6 +1,6 @@
 import httpx
 import asyncio
-from scanner import find_config, read_config
+from services.scanner import find_config, read_config
 
 
 async def send_config(app_name: str, config: str):
@@ -12,7 +12,7 @@ async def send_config(app_name: str, config: str):
     async with httpx.AsyncClient() as cl:
         response = await cl.post(url, json=payload)
         if response.status_code == 200:
-            print(f"Config for '{app_name}' sent successfully.")
+            return
         else:
             print(f"Failed to send config for '{app_name}'. Status code: {response.status_code}, Response: {response.text}")
         return response.json()
