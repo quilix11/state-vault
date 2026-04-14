@@ -1,7 +1,7 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, declarative_base
 
-DB_URL = 'sqlite:///state_vault.db'
+DB_URL = 'sqlite:///./database/db/state_vault.db'
 
 engine = create_engine(DB_URL)
 

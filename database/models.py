@@ -9,4 +9,4 @@ class ConfigBackup(Base):
     app_name: Mapped[str]
     content: Mapped[str]
     created_at: Mapped[datetime.datetime] = mapped_column(default=datetime.datetime.utcnow)
-    version: Mapped[int] = mapped_column(default=1)
+    version: Mapped[int] = mapped_column(default=1, autoincrement=True)
