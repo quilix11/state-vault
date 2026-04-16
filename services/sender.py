@@ -4,7 +4,7 @@ from services.scanner import find_config, read_config
 
 
 async def send_config(app_name: str, config: str):
-    url = "http://127.0.0.1:8000/config"
+    url = "http://127.0.0.1:8000/push"
     payload = {
         "app_name": app_name,
         "config": config
