@@ -8,7 +8,7 @@ async def get_config(config_name):
         try:
             response = await cl.get(url)
             if response.status_code == 200:
-                return response.json
+                return response.json()
             else:
                 return None
         except httpx.ConnectError:
